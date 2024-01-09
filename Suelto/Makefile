@@ -2,7 +2,7 @@
 SOURCE_FILE = $(file)
 
 # Nombre del ejecutable
-TARGET = bin/$(SOURCE_FILE).exe
+TARGET = bin\$(SOURCE_FILE).exe
 
 # Compilador
 CXX = g++
@@ -10,7 +10,7 @@ CXX = g++
 # Opciones de compilación
 CXXFLAGS = -std=c++11 -Wall -g -ggdb
 
-.PHONY: all run debug
+.PHONY: all run debug clean
 
 # Regla por defecto: compilar el programa
 all: $(TARGET)
@@ -21,7 +21,10 @@ $(TARGET): src/$(SOURCE_FILE).cpp
 
 # Regla para ejecutar el programa
 run: $(TARGET)
-	@./$(TARGET)
+	@.\$(TARGET)
 # Regla para debugear el programa
 debug: $(TARGET)
-	@gdb ./$(TARGET)
+	@gdb .\$(TARGET)
+# Regla para eliminar el ejecutable
+clean:
+	@del .\$(TARGET)
