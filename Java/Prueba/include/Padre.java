@@ -1,4 +1,6 @@
 package include;
+
+import include.*;
 public class Padre extends Persona{
     private String son;
     public Padre(String name,int age, String son){
