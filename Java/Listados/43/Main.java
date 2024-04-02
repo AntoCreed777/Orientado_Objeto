@@ -3,8 +3,10 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Expendedor ex = new Expendedor(5);
+        Moneda moneda = null;
         for(int i=0; i<6; i++){
-            Bebida aux = ex.comprarBebida(new Moneda(), 1);
+            moneda = new Moneda();
+            Bebida aux = ex.comprarBebida(moneda, 1);
             if(aux != null){
                 System.out.println(aux.getSerie());
                 System.out.println(aux.beber());
