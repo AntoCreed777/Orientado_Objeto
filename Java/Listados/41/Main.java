@@ -5,15 +5,24 @@ public class Main {
         Deposito d1 = new Deposito();
         Deposito d2 = new Deposito();
 
-        d1.addbebida(new Sprite(1));
-        d1.addbebida(new Fanta(2));
-        d1.addbebida(new Kem(3));
-        d1.addbebida(new CocaCola(4));
+        Bebida auxBebida = new Sprite(1);
+        d1.addBebida(auxBebida);
+        auxBebida = new Fanta(2);
+        d1.addBebida(auxBebida);
+        auxBebida = new Kem(3);
+        d1.addBebida(auxBebida);
+        auxBebida = new CocaCola(4);
+        d1.addBebida(auxBebida);
 
-        d2.addbebida(new Sprite(5));
-        d2.addbebida(new Fanta(6));
-        d2.addbebida(new Kem(7));
-        d2.addbebida(new CocaCola(8));
+        auxBebida = new Sprite(5);
+        d2.addBebida(auxBebida);
+        auxBebida = new Fanta(6);
+        d2.addBebida(auxBebida);
+        auxBebida = new Kem(7);
+        d2.addBebida(auxBebida);
+        auxBebida = new CocaCola(8);
+        d2.addBebida(auxBebida);
+
 
         for(int i=0;i<5;i++){
             Bebida aux = d1.getBebida();
@@ -87,14 +96,13 @@ class Deposito{
         list = new ArrayList<Bebida>();
     }
 
-    public void addbebida(Bebida a){
+    public void addBebida(Bebida a){
         list.add(a);
     }
 
     public Bebida getBebida(){
         if(list.size() == 0){return null;}
-        Bebida aux = list.get(0);
-        list.remove(0);
+        Bebida aux = list.remove(0);
         return aux;
     }
 }

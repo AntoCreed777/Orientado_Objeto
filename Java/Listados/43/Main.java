@@ -51,14 +51,13 @@ class Deposito{
         list = new ArrayList<Bebida>();
     }
 
-    public void addbebida(Bebida a){
+    public void addBebida(Bebida a){
         list.add(a);
     }
 
     public Bebida getBebida(){
         if(list.size() == 0){return null;}
-        Bebida aux = list.get(0);
-        list.remove(0);
+        Bebida aux = list.remove(0);
         return aux;
     }
 }
@@ -72,8 +71,8 @@ class Expendedor{
         sprite = new Deposito();
 
         for(int i=0; i<cantidad; i++){
-            coca.addbebida(new CocaCola(100 + i));
-            sprite.addbebida(new Sprite(200 + i));
+            coca.addBebida(new CocaCola(100 + i));
+            sprite.addBebida(new Sprite(200 + i));
         }
     }
 
