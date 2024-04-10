@@ -83,6 +83,7 @@ class Expendedor{
     }
 
     public Bebida comprarBebida(Moneda moneda, int tipo){
+        if(moneda == null){return null;}
         if(moneda.getValor() < presio){
             monVu.addMoneda(moneda);
             return null;

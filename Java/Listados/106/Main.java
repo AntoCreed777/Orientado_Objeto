@@ -83,18 +83,32 @@ class Expendedor{
     }
 
     public Bebida comprarBebida(Moneda moneda, int tipo){
-        if(moneda.getValor() < presio){
+        if(moneda == null){return null;}
+        if(moneda.getValor() < presio || (tipo != COCA && tipo != SPRITE)){
             monVu.addMoneda(moneda);
             return null;
         }
         for(int i = moneda.getValor()-presio;i>0;i-=100){
             monVu.addMoneda(new Moneda100());
         }
+        Bebida auxBebida = null;
         switch (tipo) {
             case COCA:
-                return coca.getBebida();
+                auxBebida = coca.getBebida();
+                if(auxBebida == null){
+                    for(int i=0;i<presio;i+=100){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                }
+                return auxBebida;
             case SPRITE:
-                return sprite.getBebida();
+                auxBebida = sprite.getBebida();
+                if(auxBebida == null){
+                    for(int i=0;i<presio;i+=100){
+                        monVu.addMoneda(new Moneda100());
+                    }
+                }
+                return auxBebida;
             default:
                 return null;
         }
